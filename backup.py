@@ -37,6 +37,7 @@ DESTDIR = args.destdir
 LOGSYS = args.log
 DELETE = args.clean
 VERBOSE = args.verbose
+RETENTION = args.retention
 
 # Inizialidze logging
 logging.basicConfig(filename=LOGSYS, level=logging.INFO)
@@ -44,7 +45,6 @@ logging.basicConfig(filename=LOGSYS, level=logging.INFO)
 # Constant variables
 SRCNAME = SRCDIR.replace("/" , "")
 PACKAGE = "/packages.txt"
-now = datetime.now()
 MYTIME = datetime.today()
 HOSTNAME = socket.gethostname()
 BACKUPTIME = now.strftime("%Y%m%d-%H%M")
@@ -77,8 +77,6 @@ except:
     logging.error("Something goes wrong in tar process")
     sys.exit(2)
 
-# Retention, number days to keep
-RETENTION = 5
 os.chdir(os.path.join(os.getcwd(), DESTDIR))
 list_of_files = os.listdir()
 current_time = time.time()

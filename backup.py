@@ -55,8 +55,8 @@ UID = os.getuid()
 if not os.path.exists(DESTDIR):
     try:
         os.makedirs(DESTDIR)
-    except FileExistsError:
-        print("File already exists")
+    except:
+        print("Something goes wrong to create :" + str(DESTDIR))
         sys.exit(2)
 
 # Logging INFO backup to log file
